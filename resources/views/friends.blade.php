@@ -268,13 +268,9 @@
                             <div class="post-project2">
                                 <h3>Mesaj Gönder</h3>
                                 <div class="post-project-fields2">
-                                    <form method="post" action="{{route('friend.message', [$userDetails->user_id])}}">
+                                    <form method="post" action="{{route('friend.message', [$userDetails->id])}}">
                                         @csrf
                                         <div class="row">
-                                            <div class="col-lg-12">
-                                                <input type="hidden" name="id">
-                                            </div>
-
                                             <div class="col-lg-12">
                                                 <textarea name="message" placeholder="Mesajın"></textarea>
                                             </div>

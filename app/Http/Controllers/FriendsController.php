@@ -18,7 +18,6 @@ class FriendsController extends Controller
     {
         $user_id      = User::where('nickname', $nickname)->first()->id;
         $userDetails  = User::where('id', $user_id)->first();
-
         $friends      = User::where('nickname',$nickname)->get();
 
 //        $FriendShares = DB::table('shares')
@@ -40,12 +39,11 @@ class FriendsController extends Controller
         request()->validate([
             'message'  => 'required',
         ]);
-        DB::table('comments')->insert([
+        DB::table('messages')->insert([
             'sender'   => Auth::user()->id,
             'receiver' => $user_id,
             'content'  => $request->message,
             'date'     => Carbon::now()
-
             ]);
         Alert::toast('Mesajınız başarıyla gönderildi..')->animation('tada faster','fadeIn')->timerProgressBar();
         return redirect()->route('home');
