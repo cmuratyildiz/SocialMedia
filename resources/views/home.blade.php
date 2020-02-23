@@ -18,7 +18,7 @@
                                                 <img src="{{ asset('avatar/'.$userDetails->photo.'') }}" alt="">
 
                                             </div>
-                                        </div><!--username-dt end-->
+                                        </div>
                                         <div class="user-specs">
                                             <h3>{{$userDetails->name}}</h3>
                                             <h3>{{$userDetails->lastname}}</h3>
@@ -27,9 +27,7 @@
                                           <div class="usr-pic">
                                             <span><img src="{{asset('avatar/siteimg/'.$userDetails->Verification.'')}}" alt=""></span>
                                         </div>
-
-
-                                    </div><!--user-profile end-->
+                                    </div>
                                     <ul class="user-fw-status">
                                         <li>
                                             <h4></h4>
@@ -43,12 +41,12 @@
                                             <a href="{{ route('profile') }}" title="">Profilim</a>
                                         </li>
                                     </ul>
-                                </div><!--user-data end-->
+                                </div>
                                 <div class="suggestions full-width">
                                     <div class="sd-title">
                                         <h3>Yeni kişiler keşfet</h3>
                                         <i class="la la-ellipsis-v"></i>
-                                    </div><!--sd-title end-->
+                                    </div>
                                     <div class="suggestions-list">
                                         @foreach($suggestions as $sugg)
                                         <div class="suggestion-usd">
@@ -63,8 +61,8 @@
                                         <div class="view-more">
                                             <a href="#" title=""><i class="la la-caret-right"> daha fazla</i></a>
                                         </div>
-                                    </div><!--suggestions-list end-->
-                                </div><!--suggestions end-->
+                                    </div>
+                                </div>
                                 <!--<div class="tags-sec full-width">
                                     <ul>
                                         <li><a href="#" title="">Help Center</a></li>
@@ -81,7 +79,7 @@
                                         <p><img src="images/cp.png" alt="">Copyright 2019</p>
                                     </div>
                                 </div><!--tags-sec end-->
-                            </div><!--main-left-sidebar end-->
+                            </div>
                         </div>
                         <div class="col-lg-6 col-md-8 no-pd">
                             <div class="main-ws-sec">
@@ -93,13 +91,10 @@
                                         <ul>
                                             <li><a class="post_project active" href="#" title="">Durum paylaş</a></li>
                                         </ul>
-                                    </div><!--post-st end-->
-                                </div><!--post-topbar end-->
-
-                                 <!--Gönderiler-->
+                                    </div>
+                                </div>
 
                                 <div class="posts-section">
-
                                         <div class="post-popup2 pst-pj2">
                                             <div class="post-project2">
                                                 <h3>Mesaj Gönder</h3>
@@ -122,9 +117,9 @@
                                                             </div>
                                                         </div>
                                                     </form>
-                                                </div><!--post-project-fields end-->
+                                                </div>
                                                 <a href="#" title=""><i class="la la-times-circle-o"></i></a>
-                                            </div><!--post-project end-->
+                                            </div>
                                         </div>
 
                                     @foreach($shares as $share)
@@ -162,9 +157,9 @@
                                                 <h3>{{$share->title}}</h3>
                                                 <ul class="job-dt">
                                                     <li><a href="#" title="">{{ $share->categoryDetail->category_name }}</a></li>
-                                                    <li><span>$30 / hr</span></li>
+                                                    <li><span>₺30 / hr</span></li>
                                                 </ul>
-                                                <p>{{$share->description}} <a href="#" title="">view more</a></p>
+                                                <p>{{$share->description}} <a href="#" title="">daha fazla</a></p>
                                                 <ul class="skill-tags">
                                                     <li><a href="#" title="">HTML</a></li>
                                                     <li><a href="#" title="">PHP</a></li>
@@ -184,7 +179,7 @@
                                                 </ul>
                                                 <a href="#"><i class="fas fa-eye"></i>{{$share->hit}}</a>
                                             </div>
-                                        </div><!--post-bar end-->
+                                        </div>
 
                                             <div class="comment-section">
                                                 @if(count($share->comments))
@@ -201,7 +196,7 @@
                                                                     <p>{{$comment->comment}}</p>
                                                                     <a href="#" title=""><i class="la la-reply-all"></i>Cevapla</a>
                                                                 </div>
-                                                            </div><!--comment-list end-->
+                                                            </div>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -210,7 +205,7 @@
                                                     <div class="comment-sec mb-3">
                                                         <ul>
                                                             <li>
-                                                                Yorum yok<!--comment-list end-->
+                                                                Bu paylaşıma ait yorum bulunmamakta!
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -227,13 +222,11 @@
                                                             <button type="submit" id="addCom">Paylaş</button>
                                                         </form>
                                                     </div>
-                                                </div><!--post-comment end-->
+                                                </div>
                                             </div>
                                     </div>
                                     @endforeach
                                 </div>
-                                <!--posts-section end-->
-
 
                                 <div class="top-profiles">
                                     <div class="pf-hd">
@@ -246,18 +239,18 @@
                                             <div class="user-profy">
                                                 <img src="{{asset('avatar/'.$rdn->photo.'')}}" width="57px" height="57px" alt="">
                                                 <h3>{{$rdn->name}}</h3>
-                                                <span>Graphic Designer</span>
+                                                <span>Öğrenci</span>
                                                 <ul>
                                                     <li><a href="#" title="" class="followw">Takip et</a></li>
                                                     <li><a href="#" title="" class="envlp post_project2"><img src="images/envelop.png" alt="">Mesaj</a></li>
                                                 </ul>
                                                 <a href="{{route('friends',$rdn->nickname)}}" title="">Profili görüntüle</a>
-                                            </div><!--user-profy end-->
+                                            </div>
                                         @endforeach
-                                    </div><!--profiles-slider end-->
+                                    </div>
 
                                 </div>
-                            </div><!--main-ws-sec end-->
+                            </div>
                         </div>
                         <div class="col-lg-3 pd-right-none no-pd">
                             <div class="right-sidebar">
@@ -274,7 +267,7 @@
                                         <h3>REKLAM VER</h3>
                                         <a href="#" title="">ayarlara git</a>
                                     </div>
-                                </div><!--widget-about end-->
+                                </div>
                                 <div class="widget widget-jobs">
                                     <div class="sd-title">
                                         <h3>Tüm ilan kategorileri</h3>
@@ -289,7 +282,7 @@
                                             <div class="hr-rate">
                                                 <span>$25/hr</span>
                                             </div>
-                                        </div><!--job-info end-->
+                                        </div>
                                         <div class="job-info">
                                             <div class="job-details">
                                                 <h3>Senior UI / UX Designer</h3>
@@ -298,7 +291,7 @@
                                             <div class="hr-rate">
                                                 <span>$25/hr</span>
                                             </div>
-                                        </div><!--job-info end-->
+                                        </div>
                                         <div class="job-info">
                                             <div class="job-details">
                                                 <h3>Junior Seo Designer</h3>
@@ -316,7 +309,7 @@
                                             <div class="hr-rate">
                                                 <span>$25/hr</span>
                                             </div>
-                                        </div><!--job-info end-->
+                                        </div>
                                         <div class="job-info">
                                             <div class="job-details">
                                                 <h3>Senior Developer Designer</h3>
@@ -325,9 +318,9 @@
                                             <div class="hr-rate">
                                                 <span>$25/hr</span>
                                             </div>
-                                        </div><!--job-info end-->
-                                    </div><!--jobs-list end-->
-                                </div><!--widget-jobs end-->
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="widget widget-jobs">
                                     <div class="sd-title">
                                         <h3>Most Viewed This Week</h3>
@@ -342,7 +335,7 @@
                                             <div class="hr-rate">
                                                 <span>$25/hr</span>
                                             </div>
-                                        </div><!--job-info end-->
+                                        </div>
                                         <div class="job-info">
                                             <div class="job-details">
                                                 <h3>Senior UI / UX Designer</h3>
@@ -351,7 +344,7 @@
                                             <div class="hr-rate">
                                                 <span>$25/hr</span>
                                             </div>
-                                        </div><!--job-info end-->
+                                        </div>
                                         <div class="job-info">
                                             <div class="job-details">
                                                 <h3>Junior Seo Designer</h3>
@@ -360,14 +353,14 @@
                                             <div class="hr-rate">
                                                 <span>$25/hr</span>
                                             </div>
-                                        </div><!--job-info end-->
-                                    </div><!--jobs-list end-->
-                                </div><!--widget-jobs end-->
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="widget suggestions full-width">
                                     <div class="sd-title">
                                         <h3>Most Viewed People</h3>
                                         <i class="la la-ellipsis-v"></i>
-                                    </div><!--sd-title end-->
+                                    </div>
                                     <div class="suggestions-list">
                                         <div class="suggestion-usd">
                                             <img src="images/resources/s1.png" alt="">
@@ -420,19 +413,16 @@
                                         <div class="view-more">
                                             <a href="#" title="">View More</a>
                                         </div>
-                                    </div><!--suggestions-list end-->
+                                    </div>
                                 </div>
-                            </div><!--right-sidebar end-->
-                        </div><!--Vip öğrenci-->
+                            </div>
+                        </div>
                     </div>
-                </div><!-- main-section-data end-->
+                </div>
             </div>
         </div>
     </main>
 
-
-
-<!--Gönderi oluştur-->
     <!------------------ Gönderi oluştur POPUP  ---------->
     <div class="post-popup pst-pj">
         <div class="post-project">
@@ -475,12 +465,10 @@
                         </div>
                     </div>
                 </form>
-            </div><!--post-project-fields end-->
+            </div>
             <a href="#" title=""><i class="la la-times-circle-o"></i></a>
-        </div><!--post-project end-->
+        </div>
     </div>
-    <!------------------       BİTİŞ            ---------->
-
     <!------------------  Gönderi 2. POPUP      ---------->
     <div class="post-popup job_post">
         <div class="post-project">
@@ -529,9 +517,9 @@
                         </div>
                     </div>
                 </form>
-            </div><!--post-project-fields end-->
+            </div>
             <a href="#" title=""><i class="la la-times-circle-o"></i></a>
-        </div><!--post-project end-->
+        </div>
     </div>
     <!-----------------       BİTİŞ            ---------->
 
@@ -571,7 +559,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor.</p>
                         <span>Sat, Aug 23, 1:10 PM</span>
                     </div>
-                </div><!--chat-list end-->
+                </div>
                 <div class="typing-msg">
                     <form>
                         <textarea placeholder="Type a message here"></textarea>
@@ -582,8 +570,8 @@
                         <li><a href="#" title=""><i class="la la-camera"></i></a></li>
                         <li><a href="#" title=""><i class="la la-paperclip"></i></a></li>
                     </ul>
-                </div><!--typing-msg end-->
-            </div><!--chat-history end-->
+                </div>
+            </div>
         </div>
         <div class="chatbox">
             <div class="chat-mg">
@@ -617,7 +605,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor.</p>
                         <span>Sat, Aug 23, 1:10 PM</span>
                     </div>
-                </div><!--chat-list end-->
+                </div>
                 <div class="typing-msg">
                     <form>
                         <textarea placeholder="Type a message here"></textarea>
@@ -628,8 +616,8 @@
                         <li><a href="#" title=""><i class="la la-camera"></i></a></li>
                         <li><a href="#" title=""><i class="la la-paperclip"></i></a></li>
                     </ul>
-                </div><!--typing-msg end-->
-            </div><!--chat-history end-->
+                </div>
+            </div>
         </div>
         <div class="chatbox">
             <div class="chat-mg bx">
@@ -680,8 +668,8 @@
                             <span>0.28 AM</span>
                         </div>
                     </div>
-                </div><!--chat-list end-->
-            </div><!--conversation-box end-->
+                </div>
+            </div>
         </div>
     </div>
 @endsection
