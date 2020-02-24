@@ -64,14 +64,13 @@ class HomePageController extends Controller
 
     public function viewPost($id){
         $userDetails =  User::where('id', Auth::user()->id)->first();
-        $random      =  User::where('status', '=', 1)->get()->random(6);
         $shares      =  Shares::with('comments')
             ->where('status', 1)
             ->where('id','=', $id)
             ->get();
         $likepost  = Shares::find($id);
         $likeCtr = Likes::where(['post_id' => $likepost->id])->count();
-        return view('singlePost',compact('shares','userDetails','random','likeCtr'));
+        return view('singlePost',compact('shares','userDetails','likeCtr'));
     }
 
     public function like($id){
