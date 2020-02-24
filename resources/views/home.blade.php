@@ -159,7 +159,7 @@
                                                     <li><a href="#" title="">{{ $share->categoryDetail->category_name }}</a></li>
                                                     <li><span>₺30 / hr</span></li>
                                                 </ul>
-                                                <p>{{$share->description}} <a href="#" title="">daha fazla</a></p>
+                                                <p>{{$share->description}} <a href="{{route('view',$share->id)}}" title="">daha fazla</a></p>
                                                 <ul class="skill-tags">
                                                     <li><a href="#" title="">HTML</a></li>
                                                     <li><a href="#" title="">PHP</a></li>
@@ -171,7 +171,9 @@
                                             <div class="job-status-bar">
                                                 <ul class="like-com">
                                                     <li>
-                                                        <a href="#"><i class="fas fa-heart"></i> Beğen</a>
+                                                        <a href="{{route('like',$share->id)}}">
+                                                            <i class="fas fa-heart"></i> Beğen
+                                                        </a>
                                                         <img src="images/liked-img.png" alt="">
                                                         <span>25</span>
                                                     </li>

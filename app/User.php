@@ -10,7 +10,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $table='users';
+    protected $table = 'users';
 
     public function posts()
     {

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pages extends Model
 {
 
-    protected $table='pages';
+    protected $table = 'pages';
 
     public function parent(){
         return $this->belongsTo('App\Pages','parent_id');

@@ -8,7 +8,7 @@ class Comment extends Model
 {
     protected $table      = 'comment';
     protected $primaryKey = 'id';
-    public $timestamps = false;
+    public    $timestamps = false;
 
     public function post()
     {

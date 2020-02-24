@@ -25,3 +25,5 @@ use RealRashid\SweetAlert\Facades\Alert;
     Route::post('/profile-settings/account','ProfileSettingsController@Account')->name('profile.account');
     Route::post('/profile-settings/','ProfileSettingsController@ResetPassword')->name('reset.password');
     Route::post('/profile-settings/deactive','ProfileSettingsController@DeactiveAccount')->name('deactive.account');
+    Route::get('/like/{id}','HomePageController@like')->name('like');
+    Route::get('/view/{id}','HomePageController@viewPost')->name('view');
