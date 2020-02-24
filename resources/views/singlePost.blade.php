@@ -48,7 +48,7 @@
                 <ul class="like-com">
                     <li>
                         <a href="{{route('like',$share->id)}}">
-                            <i class="fas fa-heart"></i> Beğen({{$likepostt}})
+                            <i class="fas fa-heart"></i> Beğen({{$likeCtr}})
                         </a>
                         <img src="images/liked-img.png" alt="">
                         <span>25</span>

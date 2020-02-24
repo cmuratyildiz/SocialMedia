@@ -71,8 +71,8 @@ class HomePageController extends Controller
             ->where('id','=', $id)
             ->get();
         $likepost  = Shares::find($id);
-        $likepostt = Likes::where(['post_id' => $likepost->id])->count();
-        return view('singlePost',compact('shares','userDetails','random','likepostt'));
+        $likeCtr = Likes::where(['post_id' => $likepost->id])->count();
+        return view('singlePost',compact('shares','userDetails','random','likeCtr'));
     }
 
     public function like($id){
@@ -88,10 +88,10 @@ class HomePageController extends Controller
             $like->email   = $email;
             $like->post_id = $post_id;
             $like->save();
-            return redirect()->route('home')->with('success', 'başarılı');
+            return redirect()->route('home')->with('success', 'Gönderiyi beğendiniz..');
         }
         else{
-            return redirect()->route('home')->with('warning', 'bu gönderiyi daha önceden beğendiniz.')->with('50px');
+            return redirect()->route('home')->with('warning', 'bu gönderiyi daha önceden beğendiniz.');
         }
     }
 
