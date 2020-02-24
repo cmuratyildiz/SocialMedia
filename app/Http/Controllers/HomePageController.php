@@ -50,7 +50,6 @@ class HomePageController extends Controller
             return redirect()->route('home');
         }
 
-
     public function addComment (Request $request)
         {
             $comment = new Comment;
