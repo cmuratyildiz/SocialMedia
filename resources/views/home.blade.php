@@ -453,7 +453,7 @@
                             </div>
                         </div>
                         <div class="col-lg-12">
-                            <input type="text" name="tag" placeholder="Tag ekle">
+                            <input type="text" name="tag" placeholder="Etiket ekle">
                         </div>
 
                         <div class="col-lg-12">

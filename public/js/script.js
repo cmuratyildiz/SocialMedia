@@ -24,6 +24,47 @@ $(window).on("load", function() {
         return false;
 
     });
+
+    //=============================SEARCH ============================================
+
+
+     // $('#search').on('keyup', function () {
+     //    var value = $(this).val();
+     //
+     //    $.ajax({
+     //        type: 'get',
+     //        url:  "{{ URL::to('search') }}",
+     //        data: {
+     //            search: value,
+     //        },
+     //        success:function ( data ) {
+     //            $('#sonuclar').hide();
+     //            $('$ajax').html( data );
+     //        },
+     //        error:function (jqXHR, textStatus, errorThrown) {
+     //            console.log("AJAX error: " + textStatus + ':' + errorThrown);
+     //        },
+     //    });
+     // });
+
+
+        $('#followme').click(function(){
+
+            swal.fire({
+                title: 'İstek göndermek istediğine emin misin?',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Evet, istek gönder!'
+            }).then(function() {
+                swal.fire(
+                    'Başarıyla gönderildi!',
+                    'Bilgi: Kabul ettiğinde size bildirim gelecektir.',
+                    'success'
+                );
+            });
+        });
     //===========================Yorum gönder==================================
 
     $("#addCom").on("click",function () {
@@ -36,11 +77,33 @@ $(window).on("load", function() {
     //============================ÇIKIŞ ==============================================
 
 
-    $("#logout").on("click",function () {
-        if(confirm('Çıkış yapmak istediğinize emin misiniz?')){
-            return true;
-        }
-        return false;
+    $('#logout').click(function() {
+
+        swal.fire({
+            title:              'İstek göndermek istediğine emin misin?',
+            type:               'warning',
+            showCancelButton:    true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor:  '#d33',
+            confirmButtonText:  'Evet, istek gönder!'
+        }).then(function (isConfirm) {
+
+            if(isConfirm){
+                $.ajax({
+                    url: "/logout",
+                    success: function (response) {
+                        swal.fire(
+
+                            'Başarıyla çıkış yaptınız!',
+                            'Tekrar gelmeniz dileğiyle..',
+                            'success'
+                        );
+                        window.location.href = '/';
+                    }
+                });
+            }
+
+        });
     });
 
     //  ============= POST UPDATE POPUP FUNCTION  POST DÜZENLE =========

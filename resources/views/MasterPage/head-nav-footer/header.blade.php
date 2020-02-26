@@ -1,16 +1,15 @@
-<!--parçalanacak-->
 <header>
     <div class="container">
         <div class="header-data">
             <div class="logo">
                 <a href="{{route('home')}}" title=""><img src="{{asset('images/logo.png')}}" alt=""></a>
-            </div><!--logo end-->
+            </div>
             <div class="search-bar">
                 <form>
-                    <input type="text" name="search" placeholder="Aramak istediğiniz..">
+                    <input type="text" class="form-control" id="search" name="search"  value="{{ old('search') }}" placeholder="Aramak istediğiniz.." >
                     <button type="submit"><i class="la la-search"></i></button>
                 </form>
-            </div><!--search-bar end-->
+            </div>
             <nav>
                 <ul>
                     @foreach($page as $item)
@@ -71,7 +70,7 @@
                                         <h3><a href="" title="">deneme</a> </h3>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.</p>
                                         <span>2 dk önce</span>
-                                    </div><!--notification-info -->
+                                    </div>
                                 </div>
                                 <div class="view-all-nots">
                                     <a href="{{route('messages')}}" title="">Tüm mesajları göster</a>
@@ -97,20 +96,19 @@
                                     <div class="notification-info">
                                         <h3><a href="#" title="">deneme</a> deneme bildirim</h3>
                                         <span>2 dk önce</span>
-                                    </div><!--notification-info -->
+                                    </div>
                                 </div>
                                 <div class="view-all-nots">
                                     <a href="#" title="">Tüm bildirimleri göster</a>
                                 </div>
-                            </div><!--nott-list end-->
-                        </div><!--notification-box end-->
+                            </div>
+                        </div>
                     </li>
                 </ul>
-            </nav><!--nav end-->
+            </nav>
             <div class="menu-btn">
                 <a href="#" title=""><i class="la la-bars"></i></a>
             </div>
-            <!--header profil-->
             <div class="user-account">
                 <div class="user-info">
                     <img src="{{asset(' ')}}" alt="">
@@ -126,10 +124,10 @@
                         <li><a href="#" title="">Şartlar & koşullar</a></li>
                     </ul>
                     <h3 class="tc">
-                        <a href="{{route('logout')}}" id="logout" title="">Çıkış</a>
+                        <a href="#" id="logout" title="">Çıkış</a>
                     </h3>
                 </div>
             </div>
         </div>
     </div>
-</header><!--header bitiş-->
+</header>

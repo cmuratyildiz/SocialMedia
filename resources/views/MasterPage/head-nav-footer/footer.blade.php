@@ -7,6 +7,5 @@
 <script type="text/javascript" src="{{asset('js/scrollbar.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/sweetalert2.all.min.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 
 

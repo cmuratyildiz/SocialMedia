@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Monolog\Handler\SyslogUdp\UdpSocket;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +18,7 @@ class ProfileSettingsController extends Controller
         $user    = User::where('id','=',$user_id)->get();
         return view('profile-settings',compact('user'));
     }
+
     public function Account(Request $request)
     {
         $request->validate([
@@ -43,7 +45,7 @@ class ProfileSettingsController extends Controller
         return redirect()->route('profile-settings')->withSuccess(['Kayıt Başarılı!']);
     }
 
-    public function ResetPassword()/****************************** ŞİFRE DEĞİŞTİR *******************************/
+    public function ResetPassword(Request $request)
     {
         $oldpass     = Input::get('oldpass');
         $newpass     = Input::get('newpass');
@@ -67,7 +69,8 @@ class ProfileSettingsController extends Controller
         Auth::logout();
         return redirect()->route('profile-settings')->withSuccess(['Kayıt Başarılı!']);
     }
-        public function DeactiveAccount() /*****************         HESABI DONDUR    ***************************/
+
+    public function DeactiveAccount()
         {
             if (Input::post())
             {

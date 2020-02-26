@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categories;
 use App\Comment;
 use App\Likes;
 use App\Shares;
@@ -24,6 +25,8 @@ class HomePageController extends Controller
             ->orderByDesc('date')
             ->get();
         $random      =  User::where('status', '=', 1)->get()->random(6);
+        $Allcagtegory =  Categories::all();
+
         return view('home',compact('shares', 'random', 'userDetails'));
     }
 
@@ -92,5 +95,7 @@ class HomePageController extends Controller
             return redirect()->route('home')->with('warning', 'bu gönderiyi daha önceden beğendiniz.');
         }
     }
+
+
 
 }

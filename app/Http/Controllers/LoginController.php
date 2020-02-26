@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
+
 
 class LoginController extends Controller
 {
@@ -15,119 +18,76 @@ class LoginController extends Controller
     {
         return view('login');
     }
-    /*public  function PostLogin(Request $request)
-    {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])){
 
-            return redirect()->intended(route('home'));
-
-
-        }
-        else{
-            return redirect()->route('login')->withErrors('email yada şifre hatalı');
-        }
-    }*/
     public function PostLogin(Request $request)
     {
-        request()->validate([
-            'email'    => 'required',
-            'password' => 'required',
-        ]);
-
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials))
-        {
-            Alert::toast('Hoşgeldiniz, keyifli vakitler..')->animation('tada faster','fadeIn')->width('300px');
-            return redirect()->intended(route('home'));
+        if ($request->isMethod('post')) {
+            $data = $request->all();
+            if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
+                $userStatus = User::where('email', $data['email'])->first();
+                if ($userStatus->status == 1) {
+                    Alert::toast('Hoşgeldiniz, keyifli vakitler..')->animation('tada faster', 'fadeIn')->width('300px');
+                    return redirect()->intended(route('home'));
+                } else {
+                    return Redirect::to("login")->with('warning', 'Başarısız şifre denemesi, Lütfen tekrar deneyin...');
+                }
+            } else {
+                return redirect()->back()->with('flash_message_error', 'Invalid Username or Password!');
+            }
         }
-        return Redirect::to("login")->with('warning', 'Başarısız şifre denemesi, Lütfen tekrar deneyin...');
     }
+
     public function Logout()
     {
         Auth::logout();
         return Redirect::to("login")->with('success', 'Başarıyla çıkış yapıldı!');
     }
-    public function Register(Request $request){
 
-        request()->validate([
-            'name'             => 'required',
-            'lastname'         => 'required',
-            'email'            => 'required',
-            'password'         => 'required',
-            'repeat-password'  => 'required',
-            'select_file'      => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
-        ]);
-        if (request('password') && request('repeat-password'))
-        {
-            $new_pass = bcrypt($request->password);
+    public function Register(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $data = $request->all();
+            $usersCount = User::where('email', $data['email'])->count();
+            if ($usersCount > 0) {
+                return redirect()->back()->with('warning', 'Email adresi kayıtlı!');
+            } else {
+                $image = $data['select_file'];
+                $new_name = rand() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path("avatar"), $new_name);
+
+                if ($data['password'] && $data['repeat-password']){
+                    $newpassword = $data['password'];
+                }
+                $type = 0;
+                $user = new User;
+                $user->name     = $data['name'];
+                $user->lastname = $data['lastname'];
+                $user->nickname = $data['name']. "-". rand(1,9999);
+                $user->email    = $data['email'];
+                $user->password = bcrypt($newpassword);
+                $user->type     = $type;
+                $user->status   = 1;
+                $user->photo    = $new_name;
+                $user->save();
+
+                // Send Register Email
+                $email = $data['email'];
+                $messageData = ['email'=>$data['email'],'name'=>$data['name']];
+                Mail::send('emails.register',$messageData,function($message) use($email){
+                    $message->to($email)->subject('Registration with E-com Website');
+                });
+
+//                // Send Confirmation Email
+//                $email = $data['email'];
+//                $messageData = ['email' => $data['email'], 'name' => $data['name'], 'code' => base64_encode($data['email'])];
+//                Mail::send('emails.confirmation', $messageData, function ($message) use ($email) {
+//                    $message->to($email)->subject('Confirm your E-com Account');
+//                });
+
+                return redirect()->back()->with('success', 'Başarıyla kayıt oldunuz!');
+
+            }
         }
-        else
-        {
-            return Redirect::to('login');
-        }
-        $image = $request->file('select_file');
-        $new_name = rand() .'.'. $image->getClientOriginalExtension();
-        $image->move(public_path("avatar"), $new_name);
-
-        $type = 0;
-        DB::table('users')
-            ->insert([
-
-                'name'     => $request->name,
-                'lastname' => $request->lastname,
-                'nickname' => $request->name."-".rand(1,9999),
-                'email'    => $request->email,
-                'password' => $new_pass,
-                'type'     => $type,
-                'status'   => 1,
-                'photo'    => $new_name
-            ]);
-
-        Alert::toast('Başarıyla kayıt oldunuz.')->animation('tada faster','fadeIn')->timerProgressBar();
-        return Redirect::to('login');
     }
-    /*public function Register(){
 
-        if (Input::get()){
-
-            $name  = Input::get('name');
-            $mail  = Input::get('mail');
-            $photo = "";
-            $city  = Input::get('city');
-            $pass  = Input::get('password');
-            $rpass = Input::get('repeat-password');
-            $rules = Input::get('cc');
-
-            if ($pass == $rpass){
-                $newpass=bcrypt($pass);
-            }
-            if (empty($photo)){
-                $photo="images/resources/user-pro-img.png";
-            }
-            if (empty($rules)){
-                $rules=0;
-            }
-            else{
-                $rules=1;
-            }
-
-            DB::table('users')
-                ->insert([
-
-
-                    'name'=>$name,
-                    'nickname'=>$name,
-                    'photo'=>$photo,
-                    'email'=>$mail,
-                    'city'=>$city,
-                    'password'=>$newpass,
-                    'rules'=>$rules
-
-                ]);
-            return redirect()->route('login');
-        }
-        else{
-            return redirect()->route('login')->withErrors('Eksiksiz doldurunuz!');
-        }
-    }*/
 }
