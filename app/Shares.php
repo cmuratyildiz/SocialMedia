@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Shares extends Model
 {
 
-    /*  PAYLAŞIMI YAPAN KİŞİ   */
     public function user(){
 
         return $this->belongsTo('App\User');
@@ -21,6 +20,6 @@ class Shares extends Model
         return $this->hasMany('App\Comment');
     }
     public function likes(){
-        return $this->hasMany('App\Likes');
+        return $this->hasMany('App\Likes', 'post_id');
     }
 }

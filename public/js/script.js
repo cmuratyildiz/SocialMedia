@@ -5,24 +5,60 @@ $(window).on("load", function() {
 
     // ============================AJAX DELETE POST====================================
 
-    $("#delPost").on("click", function () {
-        if (confirm('Silmek istediğinize emin misiniz?')) {
-            var id = $(this).data("id");
-            var token = $("meta[name='csrf-token']").attr("content");
-            $.ajax(
-                {
-                    url: "profile/"+id,
-                    type: 'DELETE',
-                    data: {
-                        "_token": token,
-                    },
-                    success: function (){
-                        window.location.href= "/";
-                    }
-                });
-        }
-        return false;
+    // $("#delPost").on("click", function () {
+    //     if (confirm('Silmek istediğinize emin misiniz?')) {
+    //         var id = $(this).data("id");
+    //         var token = $("meta[name='csrf-token']").attr("content");
+    //         $.ajax(
+    //             {
+    //                 url: "profile/"+id,
+    //                 type: 'DELETE',
+    //                 data: {
+    //                     "_token": token,
+    //                 },
+    //                 success: function (){
+    //                     window.location.href= "/";
+    //                 }
+    //             });
+    //     }
+    //     return false;
+    //
+    // });
 
+    $('#delPost').click(function() {
+        var id = $(this).data("id");
+        var token = $("meta[name='csrf-token']").attr("content");
+        swal.fire({
+            title:              'İstek göndermek istediğine emin misin?',
+            type:               'warning',
+            showCancelButton:    true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor:  '#d33',
+            confirmButtonText:  'Evet, istek gönder!'
+        }).then(function (isConfirm) {
+
+            if(isConfirm){
+
+                $.ajax(
+                            {
+                                url: "profile/"+id,
+                                type: 'DELETE',
+                                data: {
+                                    "_token": token,
+                                },
+                                success: function (){
+                                    swal.fire(
+
+                                        'Başarıyla silindi!',
+                                        'Bilgi: Silindi.',
+                                        'success'
+
+                                    );
+                                    window.location.href= "/profile";
+                                }
+                            });
+                    }
+        });
     });
 
     //=============================SEARCH ============================================
@@ -80,12 +116,14 @@ $(window).on("load", function() {
     $('#logout').click(function() {
 
         swal.fire({
-            title:              'İstek göndermek istediğine emin misin?',
+            title:              'Çıkış yapmak istediğine emin misin?',
             type:               'warning',
             showCancelButton:    true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor:  '#d33',
-            confirmButtonText:  'Evet, istek gönder!'
+            cancelButtonText:   'Vazgeç',
+            confirmButtonText:  'Evet, Çıkış yap!'
+
         }).then(function (isConfirm) {
 
             if(isConfirm){

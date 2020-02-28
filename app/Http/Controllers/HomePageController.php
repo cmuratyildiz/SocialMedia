@@ -25,9 +25,8 @@ class HomePageController extends Controller
             ->orderByDesc('date')
             ->get();
         $random      =  User::where('status', '=', 1)->get()->random(6);
-        $Allcagtegory =  Categories::all();
 
-        return view('home',compact('shares', 'random', 'userDetails'));
+        return view('home',compact('shares', 'random', 'userDetails','Likes'));
     }
 
     public function NewsPost(Request $request){
