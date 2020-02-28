@@ -84,30 +84,60 @@ $(window).on("load", function() {
      // });
 
 
-        $('#followme').click(function(){
+    $('#followme').click(function() {
 
-            swal.fire({
-                title: 'İstek göndermek istediğine emin misin?',
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Evet, istek gönder!'
-            }).then(function() {
+        swal.fire({
+            title:              'Takip etmek istediğine emin misin?',
+            type:               'warning',
+            showCancelButton:    true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor:  '#d33',
+            cancelButtonText:   'Vazgeç',
+            confirmButtonText:  'Evet, takip et!'
+
+        }).then(function (isConfirm) {
+
+            if(isConfirm.value==true){
                 swal.fire(
-                    'Başarıyla gönderildi!',
-                    'Bilgi: Kabul ettiğinde size bildirim gelecektir.',
+
+                    'İsteğiniz gönderildi!',
+                    'Keyifli vakitler..',
                     'success'
                 );
-            });
+            }
+            else{
+                swal.fire(
+
+                    'Takip isteği atmaktan vazgeçtin!',
+                    'Keyifli vakitler..',
+                    'info'
+                );
+            }
         });
+    });
     //===========================Yorum gönder==================================
 
-    $("#addCom").on("click",function () {
-       if(confirm('Yorumu göndermek istiyor musunuz?')){
-           return true;
-       }
-       return false;
+    $('#addCom').click(function() {
+
+        swal.fire({
+            title:              'Yorumu göndermek istiyor musun?',
+            type:               'warning',
+            showCancelButton:    true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor:  '#d33',
+            cancelButtonText:   'Vazgeç',
+            confirmButtonText:  'Evet, Çıkış yap!'
+
+        }).then(function (isConfirm) {
+
+            if(isConfirm.value==true){
+                swal.fire(
+
+                    'Yorum gönderildi!',
+                    'info'
+                );
+            }
+        });
     });
 
     //============================ÇIKIŞ ==============================================
@@ -126,7 +156,7 @@ $(window).on("load", function() {
 
         }).then(function (isConfirm) {
 
-            if(isConfirm){
+            if(isConfirm.value==true){
                 $.ajax({
                     url: "/logout",
                     success: function (response) {
@@ -140,9 +170,18 @@ $(window).on("load", function() {
                     }
                 });
             }
+            else{
+                swal.fire(
 
+                    'Aktif Kalmayı tercih ettin!',
+                    'Keyifli vakitler..',
+                    'info'
+                );
+            }
         });
     });
+
+
 
     //  ============= POST UPDATE POPUP FUNCTION  POST DÜZENLE =========
 

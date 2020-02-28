@@ -54,14 +54,18 @@ class HomePageController extends Controller
 
     public function addComment (Request $request)
         {
-            $comment = new Comment;
-            $comment->shares_id = request('shares_id');
-            $comment->user_id   = Auth::user()->id;
-            $comment->comment   = request('comment');
-            $comment->date      = Carbon::now();
-            $comment->save();
-            Alert::toast('Yorumunuz paylaşıldı..')->animation('tada faster','fadeIn')->timerProgressBar()->position('top-start');
-            return redirect()->route('home');
+            $data=$request->all();
+            if (!empty($data['comment'])){
+                $comment = new Comment;
+                $comment->shares_id = request('shares_id');
+                $comment->user_id   = Auth::user()->id;
+                $comment->comment   = request('comment');
+                $comment->date      = Carbon::now();
+                $comment->save();
+                Alert::toast('Yorumunuz paylaşıldı..')->animation('tada faster','fadeIn')->timerProgressBar()->position('top-start');
+                return redirect()->route('home');
+            }
+
         }
 
     public function viewPost($id){
@@ -91,7 +95,7 @@ class HomePageController extends Controller
             return redirect()->route('home')->with('success', 'Gönderiyi beğendiniz..');
         }
         else{
-            return redirect()->route('home')->with('warning', 'bu gönderiyi daha önceden beğendiniz.');
+            return redirect()->route('home')->with('info', 'bu gönderiyi daha önce beğendiniz.');
         }
     }
 

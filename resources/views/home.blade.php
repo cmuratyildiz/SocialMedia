@@ -219,7 +219,7 @@
                                                     <div class="comment_box">
                                                         <form action="{{ route('add.comment') }}" method="post">
                                                             @csrf
-                                                            <input type="text" name="comment" autocomplete="off" placeholder="Yorum gönderin..">
+                                                            <input type="text" class="form-control"  name="comment" autocomplete="off" placeholder="Yorum gönderin..">
                                                             <input type="hidden" value="{{$share->id}}" name="shares_id">
                                                             <button type="submit" id="addCom">Paylaş</button>
                                                         </form>
