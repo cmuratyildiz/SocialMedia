@@ -32,6 +32,7 @@ use RealRashid\SweetAlert\Facades\Alert;
     Route::get('/friends/{nickname}','FriendsController@friendsProfile')->name('friends');
     Route::post('/friends/{user_id}','FriendsController@Message')->name('friend.message');
 
+    //===== Message Controller
     Route::get('/messages','MessagesController@Messages')->name('messages');
 
     //===== ProfileSetting Controller
@@ -40,6 +41,8 @@ use RealRashid\SweetAlert\Facades\Alert;
     Route::post('/profile-settings/','ProfileSettingsController@ResetPassword')->name('reset.password');
     Route::post('/profile-settings/deactive','ProfileSettingsController@DeactiveAccount')->name('deactive.account');
 
+    //===== Forum Controller
+    Route::get('/forum','ForumController@index')->name('forum');
 
 
 //    Route::prefix('kullanici')->group(function () {

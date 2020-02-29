@@ -111,7 +111,7 @@
             </div>
             <div class="user-account">
                 <div class="user-info">
-                    <img src="{{asset(' ')}}" alt="">
+                    <img src="{{ asset('avatar/'.Auth::user()->photo) }}" width="30px" alt="">
                     <a href="#" title="">{{Auth::user()->nickname}}</a>
                     <i class="la la-sort-down"></i>
                 </div>

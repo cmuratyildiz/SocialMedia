@@ -253,7 +253,7 @@ header {
 .forum-bar {
 	float: left;
 	margin-top: 10px;
-	width: 400px;
+	/*width: 400px;*/
 }
 .forum-bar h2 {
 	float: left;
@@ -5614,7 +5614,7 @@ a:hover {
 	width: auto;
 }
 .widget-user ul li .usr-ms-img {
-	width: 35px;
+	/*width: 35px;*/
 } 
 .widget-user ul li .usr-mg-info h3 {
 	font-size: 14px;

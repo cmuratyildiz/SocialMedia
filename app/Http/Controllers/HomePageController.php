@@ -25,11 +25,11 @@ class HomePageController extends Controller
             ->orderByDesc('date')
             ->get();
         $random      =  User::where('status', '=', 1)->get()->random(6);
-
-        $likeShare      =  Shares::with('likes')
+        $likeShare   =  Shares::with('likes')
             ->where('status', 1)
             ->orderByDesc('date')
-            ->get()->take(10);
+            ->get()
+            ->take(10);
 
         return view('home',compact('shares', 'random', 'userDetails','Likes','likeShare'));
     }

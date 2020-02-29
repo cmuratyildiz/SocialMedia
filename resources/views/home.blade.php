@@ -270,26 +270,30 @@
                                         <a href="#" title="">ayarlara git</a>
                                     </div>
                                 </div>
-                                <div class="widget widget-jobs">
+
+                                <div class="widget widget-user">
                                     <div class="sd-title">
                                         <h3>En çok beğenilenler</h3>
                                         <i class="la la-ellipsis-v"></i>
                                     </div>
-                                    @foreach($likeShare as $likesh)
-                                    <div class="jobs-list">
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <img src="{{asset('avatar/'.$likesh->user->photo.'')}}" width="57px" height="57px" alt="">
-                                                <h3><a href="friends/{{$likesh->user->nickname}}" >{{$likesh->user->name}}</a></h3>
-                                                <p><a href="view/{{$likesh->id}}">{{$likesh->title}}</a> </p>
+                                    <ul>
+                                        @foreach($likeShare as $likesh)
+                                        <li>
+                                            <div class="usr-msg-details">
+                                                <div class="usr-ms-img">
+                                                    <img src="{{asset('avatar/'.$likesh->user->photo.'')}}" width="57px" height="57px" alt="">
+                                                </div>
+                                                <div class="usr-mg-info">
+                                                    <h3><a href="friends/{{$likesh->user->nickname}}" >{{$likesh->user->name}}</a></h3>
+                                                    <p><a href="view/{{$likesh->id}}">{{$likesh->title}}</a> </p>
+                                                </div>
                                             </div>
-                                            <div class="hr-rate">
-                                                <span><i class="fas fa-heart"> {{count($likesh->likes)}}</i></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endforeach
+                                            <span><img src="images/price1.png" alt=""><i class="fas fa-heart"> {{count($likesh->likes)}}</i></span>
+                                        </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
+
                                 <div class="widget widget-jobs">
                                     <div class="sd-title">
                                         <h3>Most Viewed This Week</h3>
