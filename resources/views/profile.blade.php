@@ -708,6 +708,7 @@
                                 <div class="product-feed-tab current" id="feed-dd">
                                     <div class="posts-section">
 <!--Paylaşımlarım-->
+                                        @if(count($shares)>0)
                                         @foreach($shares as $share)
                                             <div class="posty">
                                                 <div class="post-bar no-margin">
@@ -814,17 +815,29 @@
                                                 </div>
                                             </div>
                                         @endforeach
-                                        <div class="process-comm">
-                                            <div class="spinner">
-                                                <div class="bounce1"></div>
-                                                <div class="bounce2"></div>
-                                                <div class="bounce3"></div>
+                                            <div class="process-comm">
+                                                <div class="spinner">
+                                                    <div class="bounce1"></div>
+                                                    <div class="bounce2"></div>
+                                                    <div class="bounce3"></div>
+                                                </div>
                                             </div>
-                                        </div><!--process-comm end-->
+                                            @else
+                                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                                <strong>Pardon!</strong> Hiçbir paylaşımınız bulunmamaktadır.
+                                                <button class="btn btn-danger" type="button" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&#10006;</span>
+                                                </button>
+                                            </div>
+                                        @endif
+
+
+
+
                                     </div><!--posts-section end-->
                                 </div><!--product-feed-tab end-->
 
-
+                                @if(count($shares)>0)
                                 <div class="post-popup3 pst-pj3">
                                     <div class="post-project3">
                                         <h3>DÜZENLE</h3>
@@ -853,6 +866,8 @@
                                         <a href="#" title=""><i class="la la-times-circle-o"></i></a>
                                     </div><!--post-project end-->
                                 </div>
+                                @endif
+
 
                                 <div class="product-feed-tab" id="my-bids">
                                     <ul class="nav nav-tabs bid-tab" id="myTab" role="tablist">

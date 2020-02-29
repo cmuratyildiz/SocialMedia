@@ -142,7 +142,6 @@ $(window).on("load", function() {
 
     //============================ÇIKIŞ ==============================================
 
-
     $('#logout').click(function() {
 
         swal.fire({
@@ -180,8 +179,6 @@ $(window).on("load", function() {
             }
         });
     });
-
-
 
     //  ============= POST UPDATE POPUP FUNCTION  POST DÜZENLE =========
 

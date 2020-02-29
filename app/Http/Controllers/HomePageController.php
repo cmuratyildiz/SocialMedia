@@ -26,7 +26,12 @@ class HomePageController extends Controller
             ->get();
         $random      =  User::where('status', '=', 1)->get()->random(6);
 
-        return view('home',compact('shares', 'random', 'userDetails','Likes'));
+        $likeShare      =  Shares::with('likes')
+            ->where('status', 1)
+            ->orderByDesc('date')
+            ->get()->take(10);
+
+        return view('home',compact('shares', 'random', 'userDetails','Likes','likeShare'));
     }
 
     public function NewsPost(Request $request){
@@ -98,6 +103,8 @@ class HomePageController extends Controller
             return redirect()->route('home')->with('info', 'bu gönderiyi daha önce beğendiniz.');
         }
     }
+
+
 
 
 

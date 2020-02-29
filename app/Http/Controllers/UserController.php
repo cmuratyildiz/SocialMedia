@@ -26,11 +26,12 @@ class UserController extends Controller
                 if ($userStatus->status == 1) {
                     Alert::toast('Hoşgeldiniz, keyifli vakitler..')->animation('tada faster', 'fadeIn')->width('300px');
                     return redirect()->intended(route('home'));
-                } else {
-                    return Redirect::to("login")->with('warning', 'Başarısız şifre denemesi, Lütfen tekrar deneyin...');
+                }
+                else{
+                    return redirect()->route('login')->with('info', 'Hesap aktif değil!');
                 }
             } else {
-                return redirect()->back()->with('flash_message_error', 'Invalid Username or Password!');
+                return redirect()->back()->with('info', 'Bilgileriniz uyuşmadı tekrar deneyiniz!');
             }
         }
     }

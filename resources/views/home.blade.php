@@ -219,7 +219,7 @@
                                                     <div class="comment_box">
                                                         <form action="{{ route('add.comment') }}" method="post">
                                                             @csrf
-                                                            <input type="text" class="form-control"  name="comment" autocomplete="off" placeholder="Yorum gönderin..">
+                                                            <input type="text"   name="comment" autocomplete="off" placeholder="Yorum gönderin..">
                                                             <input type="hidden" value="{{$share->id}}" name="shares_id">
                                                             <button type="submit" id="addCom">Paylaş</button>
                                                         </form>
@@ -272,56 +272,23 @@
                                 </div>
                                 <div class="widget widget-jobs">
                                     <div class="sd-title">
-                                        <h3>Tüm ilan kategorileri</h3>
+                                        <h3>En çok beğenilenler</h3>
                                         <i class="la la-ellipsis-v"></i>
                                     </div>
+                                    @foreach($likeShare as $likesh)
                                     <div class="jobs-list">
                                         <div class="job-info">
                                             <div class="job-details">
-                                                <h3>Senior Product Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
+                                                <img src="{{asset('avatar/'.$likesh->user->photo.'')}}" width="57px" height="57px" alt="">
+                                                <h3><a href="friends/{{$likesh->user->nickname}}" >{{$likesh->user->name}}</a></h3>
+                                                <p><a href="view/{{$likesh->id}}">{{$likesh->title}}</a> </p>
                                             </div>
                                             <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div>
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior UI / UX Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div>
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Junior Seo Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div><!--job-info end-->
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior PHP Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
-                                            </div>
-                                        </div>
-                                        <div class="job-info">
-                                            <div class="job-details">
-                                                <h3>Senior Developer Designer</h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</p>
-                                            </div>
-                                            <div class="hr-rate">
-                                                <span>$25/hr</span>
+                                                <span><i class="fas fa-heart"> {{count($likesh->likes)}}</i></span>
                                             </div>
                                         </div>
                                     </div>
+                                    @endforeach
                                 </div>
                                 <div class="widget widget-jobs">
                                     <div class="sd-title">
