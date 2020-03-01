@@ -23,7 +23,7 @@
                                     <div class="user_pro_status">
                                         <ul class="flw-hr">
                                             <li><a href="#" title="" class="flww" id="followme"><i class="la la-plus"></i> Takip et</a></li>
-                                            <li><a href="#" title="" class="hre">Hire</a></li>
+                                            <li><a href="#" title="" class="hre"><i class="la la-user "></i>Gizle</a></li>
                                         </ul>
                                         <ul class="flw-status">
                                             <li>

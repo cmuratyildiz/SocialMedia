@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/responsive.css')}}">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"></head>
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/sweetalert2.min.css')}}">
 
 <body class="sign-in">
 
@@ -85,7 +85,7 @@
                                     <h2>ornek@edu.com.tr</h2>
                                     <ul>
                                         <li data-tab="tab-3" class="current"><a href="#" title="">Öğrenci</a></li>
-                                        <li data-tab="tab-4"><a href="#" title="">Öğretmen</a></li>
+                                        <li data-tab="tab-4"><a href="#" title="">Kurumsal</a></li>
                                     </ul>
                                 </div><!--signup-tab end-->
                                 <div class="dff-tab current" id="tab-3">
@@ -113,9 +113,9 @@
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
                                                     <input type="file" name="select_file" placeholder="Fotoğraf Seçiniz">
-
                                                 </div>
                                             </div>
+
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
                                                     <input type="password" name="password" placeholder="Şifreniz">
@@ -135,8 +135,8 @@
                                                         <label for="c2">
                                                             <span></span>
                                                         </label>
-                                                        <small>Yasal Sorumlulukları kabul ediyor ve onaylıyorum.</small>
-                                                    </div><!--fgt-sec end-->
+                                                        <small>Yasal Sorumlulukları kabul ediyor ve <u>onaylıyorum.</u></small>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 no-pdd">
@@ -144,19 +144,19 @@
                                             </div>
                                         </div>
                                     </form>
-                                </div><!--dff-tab end-->
+                                </div>
                                 <div class="dff-tab" id="tab-4">
-                                    <form>
+                                    <form action="" method="post">
                                         <div class="row">
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input type="text" name="company-name" placeholder="Company Name">
+                                                    <input type="text" name="company_name" placeholder="Kuruluş adı">
                                                     <i class="la la-building"></i>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
-                                                    <input type="text" name="country" placeholder="Country">
+                                                    <input type="email" name="email" placeholder="Country">
                                                     <i class="la la-globe"></i>
                                                 </div>
                                             </div>
@@ -179,22 +179,22 @@
                                                         <label for="c3">
                                                             <span></span>
                                                         </label>
-                                                        <small>Yes, I understand and agree to the workwise Terms & Conditions.</small>
-                                                    </div><!--fgt-sec end-->
+                                                        <small>Yasal sorumlulukları kabul ediyor ve <u>onaylıyorum.</u></small>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 no-pdd">
-                                                <button type="submit" value="submit">Get Started</button>
+                                                <button type="submit" value="submit">Kayıt ol</button>
                                             </div>
                                         </div>
                                     </form>
-                                </div><!--dff-tab end-->
+                                </div>
                             </div>
-                        </div><!--login-sec end-->
+                        </div>
                     </div>
                 </div>
-            </div><!--signin-pop end-->
-        </div><!--signin-popup end-->
+            </div>
+        </div>
         <div class="footy-sec">
             <div class="container">
                 <ul>
@@ -206,13 +206,11 @@
                     <li><a href="" title="">Forum</a></li>
                     <li><a href="#" title="">Copyright Policy</a></li>
                 </ul>
-                <p><img src="images/copy-icon.png" alt="">Copyright 2019</p>
+                <p><img src="images/copy-icon.png" alt="">Copyright 2020-21 | Çağatay Murat YILDIZ</p>
             </div>
-        </div><!--footy-sec end-->
-    </div><!--sign-in-page end-->
-
-
-</div><!--theme-layout end-->
+        </div>
+    </div>
+</div>
 
 
 
@@ -221,6 +219,7 @@
 <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('lib/slick/slick.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/sweetalert2.all.min.js')}}"></script>
 @include('sweetalert::alert')
 </body>
 </html>

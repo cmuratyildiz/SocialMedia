@@ -1,8 +1,14 @@
 <?php
-use RealRashid\SweetAlert\Facades\Alert;
+
 
    //====================================ADMIN=============================================//
 
+
+    Route::get('/admin','Admin\HomeController@index')->name('admin.home');
+
+    //===== Admin Login Controller
+    Route::get('/admin/login','Admin\LoginController@index')->name('admin.login');
+    Route::post('/admin/login','Admin\LoginController@AdminLogin')->name('admin.login.post');
 
 
 

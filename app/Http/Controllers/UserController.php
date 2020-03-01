@@ -22,18 +22,18 @@ class UserController extends Controller
         if ($request->isMethod('post')) {
             $data = $request->all();
             if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
-                $userStatus = User::where('email', $data['email'])->first();
-                if ($userStatus->status == 1) {
+                $user = User::where('email', $data['email'])->first();
+                if ($user->status == 1) {
 
-                    if ($userStatus->type == 1){
+                    if ($user->type == 1){
                         Alert::toast('Hoşgeldiniz, Admin ßey..')->animation('tada faster', 'fadeIn')->width('300px');
                         return redirect()->intended(route('home'));
                     }
-                    else{
-                        Alert::toast('Hoşgeldiniz, keyifli vakitler..')->animation('tada faster', 'fadeIn')->width('300px');
+                    else
+                    {
+                        Alert::toast('Hoşgeldiniz, Admin ßey..')->animation('tada faster', 'fadeIn')->width('300px');
                         return redirect()->intended(route('home'));
                     }
-
                 }
                 else{
                     return redirect()->route('login')->with('info', 'Hesap aktif değil!');

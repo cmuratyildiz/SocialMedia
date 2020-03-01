@@ -498,9 +498,10 @@ nav > ul > li > a:hover {
 	color: #fff;
 }
 
+
 .user-account {
 	float: right;
-	width: 110px;
+	width: 165px;/* değiştirildi */
 	border-left: 1px solid #dd3e2b;
 	border-right: 1px solid #dd3e2b;
 	box-sizing: border-box;

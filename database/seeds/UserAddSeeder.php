@@ -12,12 +12,15 @@ class UserAddSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        DB::table('admin')->insert([
 
 
-            'name'=>'Çağatay Murat YILDIZ',
+            'name'=>'Çağatay Murat',
+            'lastname'=>' YILDIZ',
             'email'=>'cagatay@hotmail.com',
             'password'=>bcrypt(123),
+            'image' =>'asdas',
+            'status' =>1
 
         ]);
     }
