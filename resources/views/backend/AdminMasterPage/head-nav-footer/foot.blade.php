@@ -1,3 +1,8 @@
-<div class="row-fluid">
-    <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
-</div>
+<footer class="footer">
+    <ul class="list-inline">
+        <li>2020 - 2021 © Universtagram.</li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Help</a></li>
+    </ul>
+</footer>

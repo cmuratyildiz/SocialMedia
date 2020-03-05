@@ -4,11 +4,22 @@
    //====================================ADMIN=============================================//
 
 
-    Route::get('/admin','Admin\HomeController@index')->name('admin.home');
+
 
     //===== Admin Login Controller
-    Route::get('/admin/login','Admin\LoginController@index')->name('admin.login');
-    Route::post('/admin/login','Admin\LoginController@AdminLogin')->name('admin.login.post');
+
+        Route::get('/admin','Admin\AdminHomeController@index')->name('admin.home')->middleware('auth.admin');
+        Route::get('admin/login','Admin\AdminLoginController@index')->name('admin.login');
+        Route::post('admin/login','Admin\AdminLoginController@AdminLogin')->name('admin.login.post');
+        Route::get('admin/logout','Admin\AdminLoginController@AdminLogout')->name('admin.logout');
+    //===== Admin Users Controller
+        Route::get('admin/kullanicilar','Admin\AdminUsersController@total_user')->name('admin.users');
+        Route::get('admin/kullanicilar/profil/{id}','Admin\AdminUsersController@user_info')->name('admin.users.info');
+        Route::post('admin/kullanicilar/guncelle','Admin\AdminUsersController@user_update')->name('admin.users.update');
+        Route::get('admin/kullanicilar/{id}','Admin\AdminUsersController@user_destory')->name('admin.users.destory');
+        Route::get('admin/profil','Admin\AdminProfileController@index')->name('admin.profile');
+
+
 
 
 

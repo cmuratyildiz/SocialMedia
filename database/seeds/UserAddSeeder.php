@@ -12,16 +12,16 @@ class UserAddSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('admin')->insert([
+
+        DB::table('admins')->insert([
 
 
-            'name'=>'Çağatay Murat',
-            'lastname'=>' YILDIZ',
-            'email'=>'cagatay@hotmail.com',
-            'password'=>bcrypt(123),
-            'image' =>'asdas',
-            'status' =>1
-
+            'name'      => 'Tayip',
+            'lastname'  => ' SONGUR',
+            'email'     => 'tayip@hotmail.com',
+            'password'  => bcrypt(123),
+            'image'     => 'asdas',
+            'status'    => 1,
         ]);
     }
 }

@@ -31,11 +31,12 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
-            // \Illuminate\Session\Middleware\AuthenticateSession::class,
+             \Illuminate\Session\Middleware\AuthenticateSession::class,/* actim*/
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \RealRashid\SweetAlert\ToSweetAlert::class,
+
         ],
 
         'api' => [
@@ -63,6 +64,8 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'isLogin'=>\App\Http\Middleware\isLogin::class,
         'isAdmin'=>\App\Http\Middleware\isAdmin::class,
+        'auth.user' => \App\Http\Middleware\AuthUsers::class,
+        'auth.admin' => \App\Http\Middleware\AuthAdmins::class,
     ];
 
     /**

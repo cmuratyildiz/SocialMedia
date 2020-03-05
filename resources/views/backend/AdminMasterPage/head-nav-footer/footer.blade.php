@@ -1,38 +1,28 @@
-<script src="js/admin-js/js/excanvas.min.js"></script>
-<script src="js/admin-js/js/jquery.min.js"></script>
-<script src="js/admin-js/js/jquery.ui.custom.js"></script>
-<script src="js/admin-js/js/bootstrap.min.js"></script>
-<script src="js/admin-js/js/jquery.flot.min.js"></script>
-<script src="js/admin-js/js/jquery.flot.resize.min.js"></script>
-<script src="js/admin-js/js/jquery.peity.min.js"></script>
-<script src="js/admin-js/js/fullcalendar.min.js"></script>
-<script src="js/admin-js/js/matrix.js"></script>
-<script src="js/admin-js/js/matrix.dashboard.js"></script>
-<script src="js/admin-js/js/jquery.gritter.min.js"></script>
-<script src="js/admin-js/js/matrix.interface.js"></script>
-<script src="js/admin-js/js/matrix.chat.js"></script>
-<script src="js/admin-js/js/jquery.validate.js"></script>
-<script src="js/admin-js/js/matrix.form_validation.js"></script>
-<script src="js/admin-js/js/jquery.wizard.js"></script>
-<script src="js/admin-js/js/jquery.uniform.js"></script>
-<script src="js/admin-js/js/select2.min.js"></script>
-<script src="js/admin-js/js/matrix.popover.js"></script>
-<script src="js/admin-js/js/jquery.dataTables.min.js"></script>
-<script src="js/admin-js/js/matrix.tables.js"></script>
+<script src="{{asset('asset/Admin/assets/scripts/jquery.min.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/scripts/modernizr.min.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/plugin/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/plugin/nprogress/nprogress.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/plugin/sweet-alert/sweetalert.min.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/plugin/waves/waves.min.js')}}"></script>
+<!-- Full Screen Plugin -->
+<script src="{{asset('asset/Admin/assets/plugin/fullscreen/jquery.fullscreen-min.js')}}"></script>
 
-<script type="text/javascript">
-    function goPage (newURL) {
-        if (newURL != "") {
-            if (newURL == "-" ) {
-                resetMenu();
-            }
-            else {
-                document.location.href = newURL;
-            }
-        }
-    }
+<!-- Google Chart -->
+<script type="text/javascript" src="{{asset('asset/Admin/assets/scripts/loader.js')}}"></script>
 
-    function resetMenu() {
-        document.gomenu.selector.selectedIndex = 2;
-    }
-</script>
+<!-- chart.js Chart -->
+<script src="{{asset('asset/Admin/assets/plugin/chart/chartjs/Chart.bundle.min.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/scripts/chart.chartjs.init.min.js')}}"></script>
+
+<!-- FullCalendar -->
+<script src="{{asset('asset/Admin/assets/plugin/moment/moment.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/plugin/fullcalendar/fullcalendar.min.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/scripts/fullcalendar.init.js')}}"></script>
+
+<!-- Sparkline Chart -->
+<script src="{{asset('asset/Admin/assets/plugin/chart/sparkline/jquery.sparkline.min.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/scripts/chart.sparkline.init.min.js')}}"></script>
+
+<script src="{{asset('asset/Admin/assets/scripts/main.min.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/scripts/mycommon.js')}}"></script>

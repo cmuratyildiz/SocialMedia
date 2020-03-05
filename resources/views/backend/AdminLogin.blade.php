@@ -1,67 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Giriş yap</title>
+    <link rel="stylesheet" href="{{asset('asset/Admin/assets/styles/style.min.css')}}">
+    <link rel="stylesheet" href="{{asset('asset/Admin/assets/styles/custom.css')}}">
+    <!-- Waves Effect -->
+    <link rel="stylesheet" href="{{asset('asset/Admin/assets/plugin/waves/waves.min.css')}}">
+</head>
 
-    <head>
-        <title>Admin</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="{{asset('css/admin-css/css/bootstrap.min.css')}}"/>
-        <link rel="stylesheet" href="{{asset('css/admin-css/css/bootstrap-responsive.min.css')}}" />
-        <link rel="stylesheet" href="{{asset('css/admin-css/css/matrix-login.css')}}" />
-        <link href="{{asset('font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-    </head>
-    <body>
-    <div id="loginbox">
-        <form id="loginform" class="form-vertical" method="post" action="{{route('admin.login.post')}}">
+<body>
+    <div id="single-wrapper">
+        <form action="{{route('admin.login.post')}}" method="post" class="frm-single">
             @csrf
-            <div class="control-group normal_text"> <h3><img src="{{asset('images/admin-images/img/logo.png')}}" alt="Logo" /></h3></div>
-            <div class="control-group">
-                <div class="controls">
-                    <div class="main_input_box">
-                        <span class="add-on bg_lg">
-                            <i class="icon-user"></i>
-                        </span>
-                        <input type="text" name="email" placeholder="E-mail adresiniz" />
-                    </div>
+        <div class="inside">
+            <div class="title"><strong>Universtagram</strong>Admin</div>
+            <!-- /.title -->
+            <div class="frm-title">Giriş</div>
+            <!-- /.frm-title -->
+            <div class="frm-input"><input type="email" name="email" placeholder="E-mail" class="frm-inp"><i class="fa fa-user frm-ico"></i></div>
+            <!-- /.frm-input -->
+            <div class="frm-input"><input type="password" name="password" placeholder="Şifreniz" class="frm-inp"><i class="fa fa-lock frm-ico"></i></div>
+            <!-- /.frm-input -->
+            <div class="clearfix margin-bottom-20">
+                <div class="float-left">
+                    <div class="checkbox primary"><input type="checkbox" id="rememberme"><label for="rememberme">Hatırla</label></div>
+                    <!-- /.checkbox -->
                 </div>
+                <!-- /.float-left -->
+                <div class="float-right"><a href="page-recoverpw.html" class="a-link"><i class="fa fa-unlock-alt"></i>Şifremi Unuttum?</a></div>
+                <!-- /.float-right -->
             </div>
-            <div class="control-group">
-                <div class="controls">
-                    <div class="main_input_box">
-                        <span class="add-on bg_ly">
-                            <i class="icon-lock"></i>
-                        </span>
-                        <input type="password" name="password" placeholder="Şifreniz" />
-                    </div>
+            <!-- /.clearfix -->
+            <button type="submit" class="frm-submit">Giriş yap<i class="fa fa-arrow-circle-right"></i></button>
+            <div class="row small-spacing">
+                <div class="col-md-12">
+                    <div class="txt-login-with txt-center">sosyal medya ile</div>
+                    <!-- /.txt-login-with -->
                 </div>
+                <!-- /.col-md-12 -->
+                <div class="col-md-6"><button type="button" class="btn btn-sm btn-icon btn-icon-left btn-social-with-text btn-facebook text-white waves-effect waves-light"><i class="ico fa fa-facebook"></i><span>Facebook</span></button></div>
+                <!-- /.col-md-6 -->
+                <div class="col-md-6"><button type="button" class="btn btn-sm btn-icon btn-icon-left btn-social-with-text btn-google-plus text-white waves-effect waves-light"><i class="ico fa fa-google-plus"></i>Google+</button></div>
+                <!-- /.col-md-6 -->
             </div>
-            <div class="form-actions">
-                <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">Şifremi Unuttum?</a></span>
-                <span class="pull-right">
-                    <button type="submit" value="submit" class="btn btn-success">Giriş yap</button>
-                </span>
-            </div>
-        </form>
-            <form id="recoverform" action="#" class="form-vertical">
-                <p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
-
-                <div class="controls">
-                    <div class="main_input_box">
-                        <span class="add-on bg_lo"><i class="icon-envelope"></i></span><input type="text" placeholder="E-mail address" />
-                    </div>
-                </div>
-
-                <div class="form-actions">
-                    <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo;Geri dön</a></span>
-                    <span class="pull-right"><a class="btn btn-info"> Reecover </a></span>
-                </div>
-            </form>
-    </div>
-
-        <script src="{{asset('js/admin-js/js/jquery.min.js')}}"></script>
-        <script src="{{asset('js/admin-js/js/matrix.login.js')}}"></script>
-        @include('sweetalert::alert')
-    </body>
-
+            <!-- /.row -->
+            <a href="page-register.html" class="a-link"><i class="fa fa-key"></i>Yeni Kayıt oluştur.</a>
+            <div class="frm-footer">Universtagram © 2020.</div>
+            <!-- /.footer -->
+        </div>
+        <!-- .inside -->
+    </form>
+    <!-- /.frm-single -->
+</div>
+<!-- ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{{asset('asset/Admin/assets/scripts/jquery.min.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/scripts/modernizr.min.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/plugin/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/plugin/nprogress/nprogress.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/plugin/waves/waves.min.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/scripts/main.min.js')}}"></script>
+<script src="{{asset('asset/Admin/assets/scripts/mycommon.js')}}"></script>
+</body>
 </html>

@@ -7,11 +7,13 @@
     @yield('head')
 </head>
 <body>
-<div id="content">
+<div id="wrapper">
     @yield('content')
 </div>
-@include('backend.AdminMasterPage.head-nav-footer.foot')
+
 @include('backend.AdminMasterPage.head-nav-footer.footer')
+@yield('js')
 @include('sweetalert::alert')
+
 </body>
 </html>
